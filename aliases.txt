@@ -1,0 +1,9 @@
+#How to:
+#1. Copy the following aliases at the end of ~/.bashrc
+#2. Use "source .bashrc"
+
+#Update the repositories and perform an upgrade
+alias update="sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get upgrade"
+
+#Delete unused packages and remove *.deb cache
+alias maintenance="sudo apt-get autoremove && sudo dpkg -l |awk '/^rc/{print $2}' |xargs sudo dpkg --purge && sudo rm -rf /var/cache/apt/archives/*.deb"
